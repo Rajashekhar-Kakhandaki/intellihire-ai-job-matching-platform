@@ -125,7 +125,7 @@ intellihire/
 └── README.md
 
 
----
+
 
 ▶️ How to Run Locally
 
@@ -142,7 +142,7 @@ touch .env
 node app.js
 
 
----
+
 
 📈 Project Highlights (For Viva)
 
@@ -182,5 +182,6 @@ Practical use of AI in HRTech
 2)S Sai Teja
 3)S Fiza
 4)Priyanka Mandloi
+
 Academic Project – AI-Powered Recruitment System
 
