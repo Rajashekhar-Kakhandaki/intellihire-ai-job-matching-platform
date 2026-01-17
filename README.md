@@ -98,35 +98,6 @@ Secure authentication & authorization
 .gitignore to protect sensitive data
 
 
-
-
-📂 Project Structure (Simplified)
-
-intellihire/
-│
-├── controllers/
-├── models/
-├── routes/
-├── views/
-│   ├── users/
-│   ├── jobs/
-│
-├── public/
-│   ├── css/
-│   ├── images/
-│
-├── utils/
-│   ├── aiMatchExplanation.js
-│   ├── interviewQuestions.js
-│
-├── .env
-├── .gitignore
-├── server.js
-└── README.md
-
-
-
-
 ▶️ How to Run Locally
 
 # Clone repository
