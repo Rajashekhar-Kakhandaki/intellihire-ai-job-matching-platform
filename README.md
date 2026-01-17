@@ -114,39 +114,6 @@ node app.js
 
 
 
-
-📈 Project Highlights (For Viva)
-
-Explainable AI in recruitment
-
-Ethical & transparent shortlisting
-
-AI-assisted interview preparation
-
-Industry-relevant real-world problem
-
-Scalable full-stack architecture
-
-
-
-
-🎓 Academic Relevance
-
-This project demonstrates:
-
-Full-stack web development
-
-AI integration in real applications
-
-Database design & optimization
-
-Clean MVC architecture
-
-Practical use of AI in HRTech
-
-
-
-
 👨‍💻 Developed By
 
 1)Rajashekhar Kakhandaki
