@@ -85,6 +85,9 @@ app.use(async (req, res, next) => {
 app.use(notificationMiddleware);
 
 // -------------------- ROUTES --------------------
+app.get("/",(req,res)=>{
+  res.render("./users/home", { pageCss: "home" });
+})
 app.use("/ai", aiRoutes);
 app.use("/", users);
 app.use("/", recruiter);
