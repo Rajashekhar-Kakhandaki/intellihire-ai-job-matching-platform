@@ -98,35 +98,6 @@ Secure authentication & authorization
 .gitignore to protect sensitive data
 
 
-
-
-📂 Project Structure (Simplified)
-
-intellihire/
-│
-├── controllers/
-├── models/
-├── routes/
-├── views/
-│   ├── users/
-│   ├── jobs/
-│
-├── public/
-│   ├── css/
-│   ├── images/
-│
-├── utils/
-│   ├── aiMatchExplanation.js
-│   ├── interviewQuestions.js
-│
-├── .env
-├── .gitignore
-├── server.js
-└── README.md
-
-
----
-
 ▶️ How to Run Locally
 
 # Clone repository
@@ -142,45 +113,16 @@ touch .env
 node app.js
 
 
----
-
-📈 Project Highlights (For Viva)
-
-Explainable AI in recruitment
-
-Ethical & transparent shortlisting
-
-AI-assisted interview preparation
-
-Industry-relevant real-world problem
-
-Scalable full-stack architecture
-
-
-
-
-🎓 Academic Relevance
-
-This project demonstrates:
-
-Full-stack web development
-
-AI integration in real applications
-
-Database design & optimization
-
-Clean MVC architecture
-
-Practical use of AI in HRTech
-
-
-
 
 👨‍💻 Developed By
 
 1)Rajashekhar Kakhandaki
+
 2)S Sai Teja
+
 3)S Fiza
+
 4)Priyanka Mandloi
+
 Academic Project – AI-Powered Recruitment System
 
