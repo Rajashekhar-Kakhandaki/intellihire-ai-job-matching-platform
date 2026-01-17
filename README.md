@@ -117,8 +117,11 @@ node app.js
 👨‍💻 Developed By
 
 1)Rajashekhar Kakhandaki
+
 2)S Sai Teja
+
 3)S Fiza
+
 4)Priyanka Mandloi
 
 Academic Project – AI-Powered Recruitment System
