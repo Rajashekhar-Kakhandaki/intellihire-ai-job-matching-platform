@@ -1,0 +1,402 @@
+/* ================= ROOT ================= */
+:root {
+  --primary: #2563eb;
+  --primary-soft: #e0e7ff;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e5e7eb;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+}
+
+/* ================= AUTO SHORTLIST ================= */
+
+/* ================= PAGE ================= */
+.applicants-container {
+  padding: 2.5rem 6%;
+  background: var(--bg);
+  min-height: 100vh;
+}
+.auto-shortlist-form {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.auto-shortlist-form label {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.auto-shortlist-form input {
+  width: 70px;
+  padding: 0.35rem;
+  margin: 0 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.btn-auto {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-auto:hover {
+  opacity: 0.9;
+}
+/* ====== RANK BADGE ====== */
+.rank-badge {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+.header {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.8rem;
+}
+/* === FIT SCORE === */
+.fit-score-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.fit-score {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fit-score.high {
+  background: #e6f7ee;
+  color: #1b7f4a;
+}
+
+.fit-score.mid {
+  background: #fff6e0;
+  color: #b76e00;
+}
+
+.fit-score.low {
+  background: #fdecea;
+  color: #b71c1c;
+}
+
+/* === TOOLTIP === */
+.fit-tooltip {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 220px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  font-size: 13px;
+  display: none;
+  z-index: 10;
+}
+
+.fit-tooltip p {
+  margin: 6px 0;
+}
+
+.fit-score-wrapper:hover .fit-tooltip {
+  display: block;
+}
+
+/* Resume quality colors */
+.rq.good {
+  color: #1b7f4a;
+  font-weight: 600;
+}
+
+.rq.medium {
+  color: #b76e00;
+  font-weight: 600;
+}
+
+.rq.poor {
+  color: #b71c1c;
+  font-weight: 600;
+}
+.empty {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* ================= CARD ================= */
+.applicant-card {
+  position: relative; /* REQUIRED for rank badge */
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+.rank-badge.top {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+.applicant-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= HEADER ================= */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+
+.email {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.phone {
+  font-size: 0.85rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* ================= SCORE BADGE ================= */
+.score-badge {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.score-badge.good { background: var(--success); }
+.score-badge.mid { background: var(--warning); }
+.score-badge.low { background: var(--danger); }
+
+/* ================= JOB ================= */
+.job {
+  margin: 0.8rem 0;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* ================= SKILLS ================= */
+.skills {
+  margin-bottom: 1rem;
+}
+
+.skill-chip {
+  display: inline-block;
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin: 0.15rem;
+  font-weight: 600;
+}
+
+/* ================= AI BOX ================= */
+.ai-card {
+  background: #f9fbff;
+  border: 1px solid #e3ecff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.ai-header {
+  font-weight: 600;
+  color: #1f4fd8;
+  margin-bottom: 8px;
+}
+
+.ai-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.ai-fallback {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+.btn-ai {
+  background: #4f46e5;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.btn-ai:hover {
+  background: #4338ca;
+}
+
+.btn-ai.small {
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+.interview-actions {
+  margin: 12px 0;
+}
+
+.action-bar .btn-ai {
+  margin-right: 12px;
+}
+.ai-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-metrics li {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.ai-metrics span {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+.ai-metrics strong {
+  font-size: 14px;
+}
+
+.yes {
+  color: #2e7d32;
+}
+
+.no {
+  color: #c62828;
+}
+
+.quality.good {
+  color: #2e7d32;
+}
+
+.quality.medium {
+  color: #f57c00;
+}
+
+.quality.poor {
+  color: #c62828;
+}
+.resume.excellent { color: var(--success); font-weight: 700; }
+.resume.good { color: var(--primary); font-weight: 700; }
+.resume.average { color: var(--warning); font-weight: 700; }
+.resume.poor { color: var(--danger); font-weight: 700; }
+
+/* ================= RESUME ================= */
+.resume-section a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.resume-section a:hover {
+  text-decoration: underline;
+}
+
+/* ================= STATUS ================= */
+.status-row {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.status {
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.status.applied { background: #64748b; }
+.status.under-review { background: #0284c7; }
+.status.accepted { background: var(--success); }
+.status.rejected { background: var(--danger); }
+
+/* ================= UPDATE ================= */
+.status-row form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.status-row select {
+  padding: 0.35rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.btn-update {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-update:hover {
+  background: #1e40af;
+}
+
+/* ================= BACK ================= */
+.btn-back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}

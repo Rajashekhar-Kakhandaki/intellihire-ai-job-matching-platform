@@ -1,0 +1,38 @@
+<%- layout("layouts/boilerplate") %>
+<div class="login-container">
+    <div class="login-card">
+
+      <h2>Login to IntelliHire</h2>
+
+      <form action="/login" method="POST">
+
+        <!-- EMAIL -->
+        <label>Email</label>
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Email address" 
+          required 
+        />
+
+        <!-- PASSWORD -->
+        <label>Password</label>
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="Password" 
+          required 
+        />
+
+        <button type="submit" class="btn-primary">
+          Login
+        </button>
+      </form>
+
+      <p class="signup-link">
+        Don’t have an account?
+        <a href="/signup">Sign up</a>
+      </p>
+
+    </div>
+  </div>

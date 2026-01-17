@@ -1,0 +1,23 @@
+<%- layout("layouts/boilerplate", { pageCss: "interviewQuestions" }) %>
+
+<div class="prep-container">
+  <h1>🎤 Interview Questions</h1>
+
+  <p>
+    Candidate: <strong><%= application.seeker.name %></strong><br>
+    Role: <strong><%= application.job.title %></strong>
+  </p>
+
+  <% questions.forEach(section => { %>
+    <div class="prep-card">
+      <h3><%= section.category %></h3>
+      <ul>
+        <% section.questions.forEach(q => { %>
+          <li><%= q.question %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% }) %>
+
+  <a href="/applicants" class="btn-back">← Back to Applicants</a>
+</div>

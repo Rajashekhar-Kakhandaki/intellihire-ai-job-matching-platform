@@ -1,0 +1,109 @@
+/* ====== Global Styles ====== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* ====== Container ====== */
+.job-container {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.job-container h2 {
+  text-align: center;
+  color: #007bff;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+/* ====== Form Styles ====== */
+.job-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ====== Input Groups ====== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 14px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* ====== Focus Effects ====== */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+}
+
+/* ====== Button ====== */
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 600px) {
+  .job-container {
+    margin: 30px 15px;
+    padding: 30px 25px;
+  }
+
+  .job-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95rem;
+  }
+}
+
+/* ====== Placeholder Styling ====== */
+::placeholder {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+/* ====== Subtle Transition on Hover ====== */
+input:hover,
+textarea:hover {
+  border-color: #007bff;
+}

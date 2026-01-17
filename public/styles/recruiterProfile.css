@@ -1,0 +1,125 @@
+/* ================= THEME VARIABLES ================= */
+:root {
+  --primary: #15803d;        /* Strong recruiter green */
+  --primary-dark: #166534;
+  --primary-soft: #bbf7d0;
+
+  --danger: #dc2626;
+  --danger-dark: #b91c1c;
+
+  --bg: #f0fdf4;
+  --card-bg: #ffffff;
+
+  --text-main: #052e16;
+  --text-muted: #475569;
+
+  --border: #86efac;
+}
+
+/* ================= PAGE BASE ================= */
+body {
+  background: white;
+  font-family: "Inter", sans-serif;
+  color: var(--text-main);
+}
+
+/* ================= CONTAINER ================= */
+.profile-container {
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.profile-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-dark);
+}
+
+/* ================= PROFILE CARD ================= */
+.profile-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 2px solid var(--primary-soft);
+  box-shadow: 0 12px 28px rgba(22, 101, 52, 0.12);
+}
+
+.profile-card p {
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-main);
+}
+
+.profile-card strong {
+  color: var(--primary-dark);
+}
+
+/* Website link */
+.profile-card a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.profile-card a:hover {
+  text-decoration: underline;
+}
+
+/* ================= ACTIONS ================= */
+.profile-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Base button */
+.btn {
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Edit profile button */
+.btn:not(.danger) {
+  background: var(--primary);
+  color: white;
+}
+
+.btn:not(.danger):hover {
+  background: var(--primary-dark);
+}
+
+/* Danger button */
+.btn.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn.danger:hover {
+  background: var(--danger-dark);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

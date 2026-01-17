@@ -1,0 +1,100 @@
+/* ===== PAGE ===== */
+body {
+  background: #f8fafc;
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+}
+
+/* ===== CONTAINER ===== */
+.edit-container {
+  max-width: 520px;
+  margin: 4rem auto;
+  background: #ffffff;
+  padding: 2.5rem 2.8rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* ===== TITLE ===== */
+.edit-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+/* ===== FORM ===== */
+.edit-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ===== LABEL ===== */
+.edit-container label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* ===== INPUT ===== */
+.edit-container input[type="text"],
+.edit-container input[type="email"],
+.edit-container input[type="file"],
+.edit-container input[type="tel"] {
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  font-size: 0.9rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.edit-container input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ===== RESUME LINK ===== */
+.edit-container p {
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.edit-container a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.edit-container a:hover {
+  text-decoration: underline;
+}
+
+/* ===== BUTTON ===== */
+.btn-save {
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .edit-container {
+    margin: 2rem 1rem;
+    padding: 2rem;
+  }
+}

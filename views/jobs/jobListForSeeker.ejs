@@ -1,0 +1,77 @@
+<%-layout("layouts/boilerplate")%>
+<body>
+  <div class="jobs-container">
+      <div class="head">
+        <h2>Available Job Openings</h2>
+        <a href="/index/seeker" class="btn">Go Back</a>
+      </div>
+      <form class="filter-form" method="GET" action="/seekers/exploreJob">
+
+  <input type="text" name="keyword"
+         placeholder="Search by job title or company"
+         value="<%= filters.keyword || '' %>">
+
+  <input type="text" name="location"
+         placeholder="Location"
+         value="<%= filters.location || '' %>">
+
+  <input type="text" name="skills"
+         placeholder="Skills (e.g. react, node)"
+         value="<%= filters.skills || '' %>">
+
+ <select name="experience">
+  <option value="">Any Experience</option>
+  <option value="0">Fresher</option>
+  <option value="1">1 year</option>
+  <option value="2">2 years</option>
+  <option value="3">3 years</option>
+  <option value="4">4+ years</option>
+</select>
+
+  <button type="submit">Search</button>
+
+  <a href="/seekers/exploreJob" class="reset-btn">Reset</a>
+</form>
+
+      <div class="jobs-grid">
+        <% if (jobs.length> 0) { %>
+          <% jobs.forEach(job=> { %>
+            <div class="job-card">
+              <div class="job-header">
+                <h3><%= job.title %></h3>
+                <span class="badge">New</span>
+              </div>
+
+              <p class="company"><%= job.companyName %></p>
+
+              <div class="job-meta">
+                <span>📍 <%= job.location || "Not specified" %></span>
+                <span>💼 <%= job.experienceRequired || "Any" %></span>
+                <span>💰 <%= job.salaryRange || "Not disclosed" %></span>
+              </div>
+
+              <div class="skills">
+                <% job.requiredSkills.slice(0,5).forEach(skill => { %>
+                  <span class="skill"><%= skill %></span>
+                <% }) %>
+              </div>
+
+              <p class="desc">
+                <%= job.description ? job.description.substring(0, 90) + "..." : "No description provided." %>
+              </p>
+
+              <div class="job-footer">
+                <a href="/jobs/<%= job._id %>?from=explore" class="btn-view">
+                   View Details
+                </a>
+
+              </div>
+            </div>
+
+            <% }) %>
+              <% } else { %>
+                <p>No jobs available at the moment.</p>
+                <% } %>
+      </div>
+    </div>
+</body>

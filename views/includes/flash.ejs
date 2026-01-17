@@ -1,0 +1,17 @@
+<div class="flash-container">
+  <% if (success && success.length > 0) { %>
+    <div class="flash-popup success">
+      <span class="icon">✔️</span>
+      <p class="message"><%= success[0] %></p>
+      <button class="close-btn">&times;</button>
+    </div>
+  <% } %>
+
+  <% if (error && error.length > 0) { %>
+    <div class="flash-popup error">
+      <span class="icon">❌</span>
+      <p class="message"><%= error[0] %></p>
+      <button class="close-btn">&times;</button>
+    </div>
+  <% } %>
+</div>

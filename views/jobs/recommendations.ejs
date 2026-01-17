@@ -1,0 +1,49 @@
+<%- layout("layouts/boilerplate", { pageCSS: "recommendations" }) %>
+
+<section class="recommend-page">
+
+  <header class="recommend-header">
+    <h1>Recommended Jobs</h1>
+    <p>Based on your skills, these roles fit you best</p>
+  </header>
+
+  <% if (jobs.length === 0) { %>
+    <div class="empty-box">
+      <p>No matching jobs found.</p>
+      <a href="/seeker/edit" class="btn-primary">Update Skills</a>
+    </div>
+  <% } else { %>
+
+  <div class="job-grid">
+    <% jobs.forEach(job => { %>
+      <div class="job-card">
+
+  <div class="job-top">
+    <h3><%= job.title %></h3>
+
+    <span class="match-score">
+      🔥 <%= job.matchScore %>% Match
+    </span>
+  </div>
+
+  <p class="company"><%= job.companyName %></p>
+
+  <p class="skills">
+    ✅ Matched: <%= job.matchedSkills.join(", ") || "None" %>
+  </p>
+
+  <p class="skills missing">
+    ❌ Missing: <%= job.missingSkills.join(", ") || "None" %>
+  </p>
+
+  <a href="/jobs/<%= job._id %>?from=recommendations" class="btn-outline">
+    View Job →
+  </a>
+
+</div>
+
+    <% }) %>
+  </div>
+
+  <% } %>
+</section>

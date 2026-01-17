@@ -1,0 +1,39 @@
+<%-layout("layouts/boilerplate")%>
+<body>
+  <div class="jobs-container">
+    <div class="head">
+     <h2>Available Job Openings</h2>
+     
+    <a href="/myListings">My Listings</a>
+   
+    <a href="/index/recruiter" class="btn">Go Back</a>
+    </div>
+   
+    <div class="jobs-grid">
+      <% if (jobs.length > 0) { %>
+        <% jobs.forEach(job => { %>
+          <div class="job-card">
+            <h3><%= job.title %></h3>
+            <p class="company"><%= job.companyName %></p>
+            <p class="location"><strong>Location:</strong> <%= job.location || "Not specified" %></p>
+            <p><strong>Experience:</strong> <%= job.experienceRequired || "Any" %></p>
+            <p><strong>Salary:</strong> <%= job.salaryRange || "Not disclosed" %></p>
+
+            <div class="skills">
+              <% job.requiredSkills.forEach(skill => { %>
+                <span class="skill"><%= skill %></span>
+              <% }) %>
+            </div>
+
+            <p class="desc"><%= job.description ? job.description.substring(0,100) + "..." : "No description provided." %></p>
+            
+            
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No jobs available at the moment.</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+

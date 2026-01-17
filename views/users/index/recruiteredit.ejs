@@ -1,0 +1,26 @@
+<%-layout("layouts/boilerplate")%>
+<body>
+
+  <div class="edit-container">
+    <h2>Edit Profile</h2>
+    <form action="/recruiter/edit" method="POST">
+      <label>Name</label>
+      <input type="text" name="name" value="<%= recruiter.name %>" required>
+
+      <label>Email</label>
+      <input type="email" name="email" value="<%= recruiter.email %>" required>
+       
+      <label>Phone Number</label>
+      <input type="tel" name="phone" value="<%=recruiter.phone%>" pattern="[6-9][0-9]{9}"/>
+      
+      <label>Company Name</label>
+      <input type="text" name="companyName" value="<%= recruiter.companyName %>">
+
+      <label>Company Website</label>
+      <input type="text" name="companyWebsite" value="<%= recruiter.companyWebsite %>">
+
+      <button type="submit" class="btn-save">Save Changes</button>
+    </form>
+  </div>
+
+</body>

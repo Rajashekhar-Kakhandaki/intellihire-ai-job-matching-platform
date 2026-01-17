@@ -1,0 +1,104 @@
+/* ===============================
+   Interview Preparation (Seeker)
+================================ */
+
+.prep-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px 60px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* Page Title */
+.prep-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+/* Role Info */
+.prep-container p {
+  text-align: center;
+  font-size: 1rem;
+  color: #475569;
+  margin-bottom: 36px;
+}
+
+/* ===============================
+   Preparation Cards
+================================ */
+
+.prep-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 26px;
+  margin-bottom: 26px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+  border-left: 6px solid #22c55e; /* Green for learning */
+}
+
+/* Section Heading */
+.prep-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  color: #15803d;
+}
+
+/* Question List */
+.prep-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+/* Question Item */
+.prep-card li {
+  margin-bottom: 14px;
+  line-height: 1.65;
+  color: #111827;
+  font-size: 1rem;
+}
+
+/* Soft hover */
+.prep-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* ===============================
+   Back Button
+================================ */
+
+.btn-back {
+  display: inline-block;
+  margin-top: 34px;
+  padding: 11px 20px;
+  background: #16a34a;
+  color: #ffffff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.btn-back:hover {
+  background: #15803d;
+}
+
+/* ===============================
+   Responsive
+================================ */
+
+@media (max-width: 600px) {
+  .prep-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .prep-card {
+    padding: 20px;
+  }
+
+  .prep-card h3 {
+    font-size: 1.15rem;
+  }
+}

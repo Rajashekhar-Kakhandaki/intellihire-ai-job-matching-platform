@@ -1,0 +1,101 @@
+/* 🌟 Flash popup container (stack multiple messages) */
+.flash-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+  pointer-events: none; /* allows clicking elements below */
+}
+
+/* 🌟 Base flash popup */
+.flash-popup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateX(100%) translateY(0);
+  animation: slideIn 0.5s ease forwards;
+}
+
+/* ✅ Success popup – flat color */
+.flash-popup.success {
+  background-color: #4caf50;
+  border-left: 5px solid #2e7d32;
+}
+
+/* ❌ Error popup – flat color */
+.flash-popup.error {
+  background-color: #f44336;
+  border-left: 5px solid #b71c1c;
+}
+
+/* ✨ Icon inside popup */
+.flash-popup .icon {
+  margin-right: 12px;
+  font-size: 1.5rem;
+}
+
+/* ✖️ Close button */
+.flash-popup .close-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.flash-popup .close-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.1);
+}
+
+/* Optional: message text styling */
+.flash-popup .message {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+/* 🔹 Animations */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(120%) translateY(0);
+  }
+}

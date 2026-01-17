@@ -1,0 +1,81 @@
+/* ===== PAGE BACKGROUND ===== */
+body {
+  background: #f4f7fb;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1f2937;
+}
+
+/* ===== CONTAINER ===== */
+.edit-container {
+  max-width: 520px;
+  margin: 3.5rem auto;
+  background: #ffffff;
+  padding: 2.4rem 2.2rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== TITLE ===== */
+.edit-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+/* ===== LABELS ===== */
+.edit-container label {
+  display: block;
+  margin-bottom: 0.4rem;
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ===== INPUTS ===== */
+.edit-container input {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.edit-container input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* ===== SAVE BUTTON ===== */
+.btn-save {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.85rem;
+  border-radius: 12px;
+  border: none;
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-save:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .edit-container {
+    margin: 2rem 1rem;
+    padding: 2rem 1.6rem;
+  }
+}

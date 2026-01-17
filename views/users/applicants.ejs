@@ -1,0 +1,153 @@
+<%- layout("layouts/boilerplate",{ pageCss:"applicants" }) %>
+
+<div class="applicants-container">
+
+  <!-- AUTO SHORTLIST -->
+  <form
+    action="/applicants/auto-shortlist"
+    method="POST"
+    class="auto-shortlist-form"
+    onsubmit="return confirm('Top candidates will be shortlisted and others rejected. Continue?')"
+  >
+    <label>
+      Auto-shortlist top
+      <input
+        type="number"
+        name="limit"
+        min="1"
+        max="<%= applications.length %>"
+        required
+      />
+      candidates
+    </label>
+    <button class="btn-auto">⚡ Smart Auto Shortlist</button>
+  </form>
+
+  <h2 class="header">Applicants</h2>
+
+  <% if (!applications || applications.length === 0) { %>
+    <p class="empty">No applicants yet.</p>
+  <% } %>
+
+  <% applications.forEach(function(app, index) { %>
+    <div class="applicant-card">
+
+      <!-- RANK -->
+      <div class="rank-badge <%= index < 3 ? 'top' : '' %>">
+        #<%= index + 1 %>
+      </div>
+
+      <!-- HEADER -->
+      <div class="card-header">
+        <div>
+          <h3><%= app.seeker.name %></h3>
+          <p class="email"><%= app.seeker.email %></p>
+
+          <% if (app.status === "Accepted" && app.seeker.phone) { %>
+            <p class="phone">📞 <%= app.seeker.phone %></p>
+          <% } %>
+        </div>
+
+        <!-- FIT SCORE WITH HOVER -->
+        <div class="fit-score-wrapper">
+          <span class="fit-score <%= app.fitScore >= 75 ? 'high' : app.fitScore >= 50 ? 'mid' : 'low' %>">
+            🔥 <%= app.fitScore %>% Match
+          </span>
+
+          <div class="fit-tooltip">
+            <p><strong>Skill Match:</strong> <%= app.skillMatchPercent %>%</p>
+            <p>
+              <strong>Experience:</strong>
+              <%= app.experienceMatch ? "Meets requirement" : "Does not meet" %>
+            </p>
+            <p>
+              <strong>Resume Quality:</strong>
+              <span class="rq <%= app.resumeQuality.toLowerCase() %>">
+                <%= app.resumeQuality %>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB -->
+      <p class="job">
+        Applied for <strong><%= app.job.title %></strong>
+      </p>
+
+      <!-- SKILLS -->
+      <div class="skills">
+        <% (app.seeker.skills || []).forEach(function(skill) { %>
+          <span class="skill-chip"><%= skill %></span>
+        <% }) %>
+      </div>
+
+      <!-- AI EXPLANATION -->
+      <div class="ai-card">
+        <div class="ai-header">🤖 AI Match Explanation</div>
+
+        <% if (app.aiExplanationStatus === "generated" && app.explanation) { %>
+          <p><%= app.explanation %></p>
+        <% } else { %>
+          <p class="ai-pending">
+            🤖 AI explanation is being prepared…
+          </p>
+        <% } %>
+        <!-- INTERVIEW QUESTIONS -->
+<div class="interview-actions">
+  <a
+    href="/applications/<%= app._id %>/interview-questions"
+    class="btn-ai small"
+  >
+    🧠 Generate Interview Questions
+  </a>
+</div>
+        <ul class="ai-metrics">
+          <li>
+            <span>Skill Match</span>
+            <strong><%= app.skillMatchPercent %>%</strong>
+          </li>
+          <li>
+            <span>Experience</span>
+            <strong class="<%= app.experienceMatch ? 'yes' : 'no' %>">
+              <%= app.experienceMatch ? "Meets requirement" : "Does not meet" %>
+            </strong>
+          </li>
+          <li>
+            <span>Resume Quality</span>
+            <strong class="quality <%= app.resumeQuality.toLowerCase() %>">
+              <%= app.resumeQuality %>
+            </strong>
+          </li>
+        </ul>
+      </div>
+
+      <!-- RESUME -->
+      <div class="resume-section">
+        <% if (app.seeker.resume) { %>
+          <a href="<%= app.seeker.resume %>" target="_blank">📄 View Resume</a>
+        <% } %>
+      </div>
+
+      <!-- STATUS -->
+      <div class="status-row">
+        <span class="status <%= app.status.toLowerCase().replace(/\s/g,'-') %>">
+          <%= app.status %>
+        </span>
+
+        <form action="/application/<%= app._id %>/update-status" method="POST">
+          <select name="status">
+            <option <%= app.status==="Applied"?"selected":"" %>>Applied</option>
+            <option <%= app.status==="Under Review"?"selected":"" %>>Under Review</option>
+            <option <%= app.status==="Accepted"?"selected":"" %>>Accepted</option>
+            <option <%= app.status==="Rejected"?"selected":"" %>>Rejected</option>
+          </select>
+          <button class="btn-update">Update</button>
+        </form>
+      </div>
+
+    </div>
+  <% }) %>
+
+  <a href="/index/recruiter" class="btn-back">← Back</a>
+</div>

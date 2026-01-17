@@ -1,0 +1,58 @@
+<%- layout("layouts/boilerplate", { pageCss: "newPost" }) %>
+
+<div class="job-container">
+  <h2>Post a New Job</h2>
+
+  <form action="/job/post" method="POST" class="job-form">
+
+    <div class="form-group">
+      <label>Job Title</label>
+      <input type="text" id="title" name="title" required />
+    </div>
+
+    <div class="form-group">
+      <label>Company Name</label>
+      <input type="text" id="companyName" name="companyName" required />
+    </div>
+
+    <div class="form-group">
+      <label>Required Skills</label>
+      <input type="text" id="requiredSkills" name="requiredSkills" required />
+    </div>
+    
+      <div class="form-group">
+        <label for="companyWebsite">Company Website</label>
+        <input type="url" id="companyWebsite" name="companyWebsite" placeholder="https://www.technova.com">
+      </div>
+
+    <div class="form-group">
+      <label>Experience</label>
+      <input type="text" id="experience" name="experience" required />
+    </div>
+     <div class="form-group">
+        <label for="salaryRange">Salary Range</label>
+        <input type="text" id="salaryRange" name="salaryRange" placeholder="5-7 LPA">
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="Bangalore / Remote">
+      </div>
+    <div class="form-group">
+      <label>Job Description</label>
+      <textarea id="description" name="description" rows="6"></textarea>
+    </div>
+
+    <!-- AI BUTTON -->
+    <button type="button" id="ai-generate" class="btn-secondary">
+      ✨ Generate with AI
+    </button>
+
+    <button type="submit" class="btn">
+      Post Job
+    </button>
+
+  </form>
+</div>
+
+<script src="/js/aiJob.js"></script>

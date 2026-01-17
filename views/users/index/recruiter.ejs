@@ -1,0 +1,88 @@
+<%- layout("layouts/boilerplate", { pageCss: "recruiter" }) %>
+
+<body class="dashboard-body">
+
+  <!-- ===== TOP NAVBAR ===== -->
+  <nav class="dash-nav">
+    <div class="nav-left">
+      <img src="/logo4.png" class="brand-logo" alt="IntelliHire Logo">
+      <h2>IntelliHire</h2>
+    </div>
+
+    <div class="nav-right">
+      <a href="/recruiter/profile" class="avatar">
+        <%= user.name.charAt(0).toUpperCase() %>
+      </a>
+      <a href="/logout" class="logout-link">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HEADER ===== -->
+  <header class="dash-header">
+    <div class="dash-left">
+      <h2>Welcome, <%= user.name %> 👋</h2>
+      <p>Manage jobs, applicants & hiring efficiently</p>
+    </div>
+
+    <a href="/job/post" class="btn-primary">
+      + Post New Job
+    </a>
+  </header>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats">
+    <div class="stat-card">
+      <h3><%= jobCount %></h3>
+      <p>Jobs Posted</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><%= applicantCount %></h3>
+      <p>Total Applicants</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><%= shortlistedCount %></h3>
+      <p>Shortlisted</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><%= hiredCount %></h3>
+      <p>Hired</p>
+    </div>
+  </section>
+
+  <!-- ===== ACTION CARDS ===== -->
+  <section class="actions">
+    <div class="action-card">
+      <h3>📋 My Posted Jobs</h3>
+      <p>View, edit or close your job posts</p>
+      <a href="/recruiter/jobs">Manage Jobs →</a>
+    </div>
+
+    <div class="action-card">
+      <h3>👥 Applicants</h3>
+      <p>Review and update candidate status</p>
+      <a href="/applicants">View Applicants →</a>
+    </div>
+
+    <div class="action-card">
+      <h3>⚙️ Update Profile</h3>
+      <p>Update company details & website</p>
+      <a href="/recruiter/edit">Edit Profile  →</a>
+    </div>
+  </section>
+<!-- ===== SIMPLE FOOTER ===== -->
+<footer class="dash-footer">
+  <p>
+    © <span id="year"></span> IntelliHire · Built for smarter hiring
+  </p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>

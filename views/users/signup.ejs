@@ -1,0 +1,87 @@
+<%- layout("layouts/boilerplate") %>
+
+<body>
+  <div class="signup-container">
+    <div class="signup-card">
+
+      <h2>Create Your Account</h2>
+
+      <form action="/signup" method="POST" enctype="multipart/form-data">
+
+        <!-- ROLE -->
+        <label>Role</label>
+        <select name="role" id="role" onchange="toggleFields()">
+          <option value="seeker" <%= role === "seeker" ? "selected" : "" %>>
+            Job Seeker
+          </option>
+          <option value="recruiter" <%= role === "recruiter" ? "selected" : "" %>>
+            Recruiter
+          </option>
+        </select>
+
+        <!-- COMMON FIELDS -->
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Full name" required />
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Email address" required />
+         
+        <label>Phone Number</label>
+<input
+  type="tel"
+  name="phone"
+  placeholder="10-digit mobile number"
+  pattern="[6-9][0-9]{9}"
+  required
+/>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password" required />
+        
+
+        <!-- SEEKER FIELDS -->
+        <div id="seekerFields">
+          <label>Skills (comma separated)</label>
+          <input type="text" name="skills" placeholder="HTML, CSS, JavaScript" />
+
+          <label>Education</label>
+          <input type="text" name="education" placeholder="Your education" />
+
+          <label>Resume</label>
+          <input type="file" name="resume" />
+        </div>
+
+        <!-- RECRUITER FIELDS -->
+        <div id="recruiterFields">
+          <label>Company Name</label>
+          <input type="text" name="companyName" placeholder="Company name" />
+
+          <label>Company Website</label>
+          <input type="url" name="companyWebsite" placeholder="https://example.com" />
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-bottom: 1rem;">Sign Up</button>
+      </form>
+
+      <p class="login-link">
+        Already have an account?
+        <a href="/login?role=<%= role %>" style="color: blue;">Login</a>
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleFields() {
+      const role = document.getElementById("role").value;
+
+      document.getElementById("seekerFields").style.display =
+        role === "seeker" ? "block" : "none";
+
+      document.getElementById("recruiterFields").style.display =
+        role === "recruiter" ? "block" : "none";
+    }
+
+    // Run on page load
+    toggleFields();
+  </script>
+</body>

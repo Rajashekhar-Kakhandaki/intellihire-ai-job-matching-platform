@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IntelliHire</title>
+ <link rel="stylesheet" href="/styles/flash.css">
+  <% if (typeof pageCss !== "undefined") { %>
+  <link rel="stylesheet" href="/styles/<%= pageCss %>.css" />
+<% } %>
+
+  <link rel="icon" href="/logo1.jpg">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+</head>
+
+<body>
+  <div class="main">
+    <%- include("../includes/flash.ejs")%>
+      <%- body %>
+  </div>
+ <script>
+  // Auto close after 5 seconds
+  setTimeout(() => {
+    const popup = document.querySelector('.flash-popup');
+    if (popup) popup.style.display = 'none';
+  }, 5000);
+
+  // Manual close
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('close-btn')) {
+      e.target.parentElement.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+
+</html>

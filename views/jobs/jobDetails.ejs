@@ -1,0 +1,113 @@
+<%- layout("layouts/boilerplate", { pageCss: "jobDetails" }) %>
+
+<div class="job-wrapper">
+
+  <!-- HEADER -->
+  <div class="job-header">
+    <h1><%= job.title %></h1>
+    <p class="company"><%= job.companyName %></p>
+    <div class="meta">
+      <span>📍 <%= job.location || "Remote" %></span>
+      <span>💰 <%= job.salaryRange || "Not disclosed" %></span>
+    </div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="card">
+    <h3>Description</h3>
+    <p><%= job.description %></p>
+  </div>
+
+  <% if (seeker) { %>
+
+  <!-- SKILL MATCH -->
+  <div class="card">
+    <h3>Skill Match Overview</h3>
+
+    <div class="skill-row">
+      <div>
+        <strong>Your Skills</strong>
+        <div class="chips">
+          <% seeker.skills.forEach(skill => { %>
+            <span class="chip"><%= skill %></span>
+          <% }) %>
+        </div>
+      </div>
+
+      <div>
+        <strong>Required Skills</strong>
+        <div class="chips">
+          <% job.requiredSkills.forEach(skill => { %>
+            <span class="chip <%= matched.includes(skill) ? 'ok' : 'miss' %>">
+              <%= skill %>
+            </span>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+    <p class="ai-hint">
+      🧠 You are close to matching this role. Improve the highlighted skills.
+    </p>
+  </div>
+
+  <!-- COLLAPSIBLE ROADMAP -->
+  <% if (roadmap && roadmap.length > 0) { %>
+  <details class="card roadmap">
+    <summary>📚 View Learning Roadmap</summary>
+
+    <% roadmap.forEach(skill => { %>
+      <div class="roadmap-skill">
+        <h4>🚀 <%= skill.skill %></h4>
+
+        <% skill.steps.forEach(step => { %>
+          <div class="step">
+            <strong><%= step.title %></strong>
+
+            <ul>
+              <% step.topics.forEach(topic => { %>
+                <li>📘 <%= topic %></li>
+              <% }) %>
+            </ul>
+
+            <div class="videos">
+              <% step.videos.forEach(video => { %>
+                <a
+                  href="https://www.youtube.com/results?search_query=<%= encodeURIComponent(video) %>"
+                  target="_blank"
+                >
+                  ▶ <%= video %>
+                </a>
+              <% }) %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% }) %>
+  </details>
+  <% } %>
+
+  <!-- ACTIONS -->
+  <div class="action-bar">
+    <a
+  href="/jobs/<%= job._id %>/practice-interview"
+  class="btn-ai"
+>
+  🎯 Practice Interview Questions
+</a>
+    <form action="/apply/<%= job._id %>" method="POST">
+      <input type="hidden" name="from" value="<%= from %>">
+      <button class="btn-primary">Apply Now</button>
+    </form>
+
+    <a
+      href="<%= from === 'recommendations' ? '/recommendations/' + seeker._id : '/seekers/exploreJob' %>"
+      class="btn-secondary"
+    >
+      ← Back
+    </a>
+  </div>
+
+  <% } %>
+
+</div>

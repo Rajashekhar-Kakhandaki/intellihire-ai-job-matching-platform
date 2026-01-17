@@ -1,0 +1,29 @@
+<%- layout("layouts/boilerplate",{pageCss:"notifications"}) %>
+
+<div class="container">
+  <h2>🔔 Notifications</h2>
+
+  <% if (notifications.length === 0) { %>
+    <p>No notifications</p>
+  <% } else { %>
+    <% notifications.forEach(n => { %>
+      <div class="notification <%= n.isRead ? 'read' : 'unread' %>">
+        <p><%= n.message %></p>
+        <small><%= n.createdAt.toDateString() %></small>
+
+        <div class="notif-actions">
+          <% if (!n.isRead) { %>
+            <form action="/notifications/<%= n._id %>/read" method="POST">
+              <button class="btn-read">Mark as read</button>
+            </form>
+          <% } %>
+
+          <form action="/notifications/<%= n._id %>/delete" method="POST"
+                onsubmit="return confirm('Delete this notification?')">
+            <button class="btn-delete">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>

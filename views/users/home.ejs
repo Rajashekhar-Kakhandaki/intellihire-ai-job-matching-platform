@@ -1,0 +1,127 @@
+<%- layout("layouts/boilerplate", { pageCSS: "home" }) %>
+
+ <header class="main-header">
+    <div class="header-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+        <img src="logo4.png" alt="IntelliHire Logo" class="logo-img">
+        <span>IntelliHire</span>
+    </div>
+
+
+      <!-- NAVIGATION -->
+      <nav class="nav-links">
+        <a href="#why">Why</a>
+        <a href="#how">How It Works</a>
+        <a href="#roles">Roles</a>
+      </nav>
+
+      <!-- ACTION BUTTONS -->
+      <div class="header-actions">
+        <a href="/login?role=seeker" class="btn login-btn">Login</a>
+        <a href="/signup?role=seeker" class="btn signup-btn">Sign Up</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+
+    <!-- Floating particles -->
+    <div class="particles">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-wrapper">
+
+      <div class="hero-content">
+        <h1>
+          Find the Right Job.<br>
+          <span>Get Hired Smarter.</span>
+        </h1>
+
+        <p>
+          An AI-powered job hiring platform that connects skilled job seekers with top recruiters.
+          Personalized recommendations, automated applicant filtering, and more.
+        </p>
+
+        <!-- HERO BUTTONS -->
+        <div class="hero-buttons">
+          <a href="/login?role=seeker" class="btn btn-seeker">I am a Job Seeker</a>
+          <a href="/login?role=recruiter" class="btn btn-recruiter">I am a Recruiter</a>
+        </div>
+      </div>
+
+      <!-- HERO VISUAL -->
+      <div class="hero-visual">
+        <img src="illustration.jpeg" alt="Job Search Illustration" class="hero-image">
+    </div>
+
+
+    </div>
+  </section>
+
+  <!-- ================= WHY ================= -->
+  <section class="why" id="why">
+    <h2>Why Choose IntelliHire?</h2>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <span>⚡</span>
+        <h3>AI-Powered Recommendations</h3>
+        <p>Jobs matched intelligently using skill analysis.</p>
+      </div>
+
+      <div class="why-card">
+        <span>🧠</span>
+        <h3>Smart Applicant Filtering</h3>
+        <p>Recruiters see best-fit candidates instantly.</p>
+      </div>
+
+      <div class="why-card">
+        <span>📄</span>
+        <h3>Resume Upload</h3>
+        <p>Cloudinary-powered resume storage.</p>
+      </div>
+
+      <div class="why-card">
+        <span>📊</span>
+        <h3>Track Application Status</h3>
+        <p>Real-time updates on applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW ================= -->
+  <section class="how" id="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">1️⃣ Create Profile</div>
+      <div class="step">2️⃣ Get Matched</div>
+      <div class="step">3️⃣ Apply or Hire</div>
+    </div>
+  </section>
+
+  <!-- ================= ROLES ================= -->
+  <section class="roles" id="roles">
+
+    <div class="role-card seeker-card">
+      <h2>For Job Seekers</h2>
+      <p>Explore jobs with AI recommendations.</p>
+      <a href="/signup?role=seeker">Get Started →</a>
+    </div>
+
+    <div class="role-card recruiter-card">
+      <h2>For Recruiters</h2>
+      <p>Post jobs & hire smarter.</p>
+      <a href="/signup?role=recruiter">Start Hiring →</a>
+    </div>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    © 2025 IntelliHire • Empowering Careers
+  </footer>

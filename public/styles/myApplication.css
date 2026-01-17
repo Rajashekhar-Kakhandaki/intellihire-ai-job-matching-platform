@@ -1,0 +1,256 @@
+.container {
+  max-width: 1100px;
+  margin: 3rem auto;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+}
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.notification-list li {
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.notification-list li.unread {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.notification-list li.read {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.notification-list .date {
+  font-size: 12px;
+  margin-left: 6px;
+  opacity: 0.7;
+}
+h2 {
+  margin-bottom: 1.8rem;
+  font-size: 1.8rem;
+  color: #1e293b;
+}
+/* ================= STATUS LEGEND ================= */
+.status-legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 12px 0 20px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.status-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================= STATUS BADGES ================= */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 110px;
+  text-align: center;
+}
+
+/* 🟦 Applied */
+.status-badge.applied {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+
+/* 🟨 Under Review */
+.status-badge.under-review {
+  background: #fef9c3;
+  color: #92400e;
+  border: 1px solid #fde047;
+}
+
+/* 🟩 Accepted */
+.status-badge.accepted {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+/* 🟥 Rejected */
+.status-badge.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* ================= WITHDRAW BUTTON ================= */
+.btn-withdraw {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-withdraw:hover {
+  background: #dc2626;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.applications-table thead {
+  background: #f1f5f9;
+}
+
+.applications-table th,
+.applications-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.applications-table th {
+  font-weight: 600;
+  color: #334155;
+}
+
+.applications-table tr:hover {
+  background: #f8fafc;
+}
+
+/* STATUS BADGES */
+.status {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status.applied {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.under-review {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.status.accepted {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* WITHDRAW */
+.btn-withdraw {
+  background: #fee2e2;
+  color: #991b1b;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-withdraw:hover {
+  background: #fecaca;
+}
+
+/* ACCEPTED BADGE */
+.badge.accepted {
+  background: #dcfce7;
+  color: #166534;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-badge.applied { background: #e0f2fe; color: #0369a1; }
+.status-badge.under-review { background: #fef3c7; color: #92400e; }
+.status-badge.accepted { background: #dcfce7; color: #166534; }
+.status-badge.rejected { background: #fee2e2; color: #991b1b; }
+
+.status-timeline {
+  list-style: none;
+  margin: 6px 0 0;
+  padding-left: 0;
+  font-size: 12px;
+  color: #475569;
+}
+
+.status-timeline li {
+  margin-top: 2px;
+}
+/* STATUS TIMELINE (CLEAN STYLE) */
+.timeline-box {
+  margin-top: 6px;
+}
+
+.timeline-box summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #2563eb;
+  outline: none;
+}
+
+.timeline-box summary:hover {
+  text-decoration: underline;
+}
+
+.timeline-box ul {
+  margin-top: 8px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.timeline-box li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.timeline-box .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+.timeline-box small {
+  color: #777;
+  font-size: 0.75rem;
+}

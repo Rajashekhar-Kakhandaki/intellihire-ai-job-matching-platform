@@ -1,0 +1,95 @@
+<%- layout("layouts/boilerplate", { pageCss: "recruiter" }) %>
+
+<body class="dashboard-body">
+
+  <!-- ===== TOP NAVBAR ===== -->
+  <nav class="dash-nav">
+    <div class="nav-left">
+      <img src="/logo4.png" class="brand-logo" alt="IntelliHire Logo">
+      <h2>IntelliHire</h2>
+    </div>
+
+    <div class="nav-right">
+
+
+      <!-- Avatar Profile -->
+      <a href="/seeker/profile" class="avatar">
+        <%= user.name.charAt(0).toUpperCase() %>
+      </a>
+       <a href="/notifications" class="nav-notification">
+        <i class="fa-solid fa-bell"></i>
+          <% if (typeof unreadNotifications !== "undefined" && unreadNotifications > 0) { %>
+            <span class="notif-badge"><%= unreadNotifications %></span>
+          <% } %>
+      </a>
+       <a href="/logout" class="logout-link">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HEADER ===== -->
+  <header class="dash-header">
+    <div class="dash-left">
+      <h2>Welcome, <%= user.name %> 👋</h2>
+      <p>Find jobs that match your skills & track applications</p>
+    </div>
+   <a href="/seekers/exploreJob" class="nav-link btn-primary">Browse Jobs</a>
+   
+  </header>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats">
+    <div class="stat-card">
+      <h3><%= appliedCount %></h3>
+      <p>Total Applications</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><%= underReviewCount %></h3>
+      <p>Under Review</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><%= acceptedCount %></h3>
+      <p>Accepted</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><%= rejectedCount %></h3>
+      <p>Rejected</p>
+    </div>
+  </section>
+
+  <!-- ===== ACTION CARDS ===== -->
+  <section class="actions">
+    <div class="action-card">
+      <h3>🔥 Recommended Jobs</h3>
+      <p>Jobs matched using your skills</p>
+      <a href="/recommendations/<%= user._id %>">View Jobs →</a>
+    </div>
+
+    <div class="action-card">
+      <h3>📄 My Applications</h3>
+      <p>Track your application status</p>
+      <a href="/myapplications">View Applications →</a>
+    </div>
+
+    <div class="action-card">
+      <h3>⚙️ Update Profile</h3>
+      <p>Improve matches by updating profile</p>
+      <a href="/seeker/edit">Edit Profile →</a>
+    </div>
+  </section>
+<!-- ===== SIMPLE FOOTER ===== -->
+<footer class="dash-footer">
+  <p>
+    © <span id="year"></span> IntelliHire · Built for smarter hiring
+  </p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>

@@ -1,0 +1,317 @@
+/* ====== General Page Layout ====== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.jobs-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* ====== Header ====== */
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.head h2 {
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.head .btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.head .btn:hover {
+  background: #0056b3;
+}
+/* ================= SEARCH BAR ================= */
+.filter-form {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0 30px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Inputs */
+.filter-form input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Search Button */
+.filter-form button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.filter-form button:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+}
+
+/* Reset Button */
+.filter-form .reset-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-form .reset-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .filter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-form input,
+  .filter-form button,
+  .filter-form .reset-btn {
+    width: 100%;
+  }
+}
+/* ================= STATUS LEGEND ================= */
+.status-legend {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  margin-left:1rem;
+  margin-right: 1rem;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.status-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+/* dots */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.review {
+  background: #facc15; /* yellow */
+}
+
+.dot.accepted {
+  background: #22c55e; /* green */
+}
+
+.dot.rejected {
+  background: #ef4444; /* red */
+}
+
+.dot.total {
+  background: #6366f1; /* neutral blue */
+}
+
+/* ====== Job Grid ====== */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* ====== Job Card ====== */
+.job-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 340px;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ====== Job Content ====== */
+.job-card h3 {
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+.company {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.location, .desc {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 6px 0;
+}
+
+/* ====== Skills ====== */
+.skills {
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+
+.skill {
+  background: #e8f0fe;
+  color: #0a58ca;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+/* ================= JOB STATS ================= */
+.job-stats {
+  display: flex;
+  gap: 14px;
+  margin: 12px 0;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.job-stats span {
+  background: #f3f4f6;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.status-review {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-accepted {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ====== Buttons at Bottom ====== */
+.job-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* ====== Button Styles ====== */
+.btn-edit,
+.btn-delete {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-edit {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+}
+
+.btn-delete {
+  background-color: #386591;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .head .btn {
+    align-self: flex-start;
+  }
+}
+.btn{
+  margin-left:2rem;
+}

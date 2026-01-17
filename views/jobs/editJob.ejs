@@ -1,0 +1,35 @@
+<%-layout("layouts/boilerplate")%>
+<body>
+  <div class="edit-container">
+    <h2>Edit Job Post</h2>
+
+    <form action="/job/<%= job._id %>?_method=PUT" method="POST">
+      <label>Job Title</label>
+      <input type="text" name="title" value="<%= job.title %>" required>
+
+      <label>Company Name</label>
+      <input type="text" name="companyName" value="<%= job.companyName %>" required>
+
+      <label>Company Website</label>
+      <input type="url" name="companyWebsite" value="<%= job.companyWebsite %>">
+
+      <label>Required Skills (comma separated)</label>
+      <input type="text" name="requiredSkills" value="<%= job.requiredSkills.join(', ') %>">
+
+      <label>Experience Required</label>
+      <input type="text" name="experienceRequired" value="<%= job.experienceRequired %>">
+
+      <label>Salary Range</label>
+      <input type="text" name="salaryRange" value="<%= job.salaryRange %>">
+
+      <label>Location</label>
+      <input type="text" name="location" value="<%= job.location %>">
+
+      <label>Description</label>
+      <textarea name="description" rows="4"><%= job.description %></textarea>
+
+      <button type="submit" class="btn-save">Update Job</button>
+    </form>
+  </div>
+</body>
+

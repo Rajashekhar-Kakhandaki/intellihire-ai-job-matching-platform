@@ -1,0 +1,38 @@
+<%- layout("layouts/boilerplate") %>
+
+<div class="profile-container">
+  <h2>My Profile</h2>
+
+  <div class="profile-card">
+    <p><strong>Name:</strong> <%= seeker.name %></p>
+    <p><strong>Email:</strong> <%= seeker.email %></p>
+    <p><strong>Education:</strong> <%= seeker.education || "Not added" %></p>
+
+    <p>
+      <strong>Skills:</strong>
+      <% if (seeker.skills && seeker.skills.length > 0) { %>
+        <%= seeker.skills.join(", ") %>
+      <% } else { %>
+        Not added
+      <% } %>
+    </p>
+
+    <p>
+      <strong>Resume:</strong>
+      <% if (seeker.resume) { %>
+        <a href="<%= seeker.resume %>" target="_blank">View Resume</a>
+      <% } else { %>
+        Not uploaded
+      <% } %>
+    </p>
+
+    <div class="profile-actions">
+      <a href="/seeker/edit" class="btn" style="color: white;;">Edit Profile</a>
+
+      <form action="/account/delete" method="POST"
+            onsubmit="return confirm('Your account and applications will be deleted. Continue?')">
+        <button class="btn danger">Delete Account</button>
+      </form>
+    </div>
+  </div>
+</div>

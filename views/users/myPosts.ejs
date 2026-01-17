@@ -1,0 +1,130 @@
+<%- layout("layouts/boilerplate") %>
+
+<body>
+  <div class="jobs-container">
+
+    <!-- ================= HEADER ================= -->
+    <div class="head">
+      <h2><%= view === "all" ? "All Companies Jobs" : "My Job Listings" %></h2>
+
+      <div class="job-nav">
+        <a href="/recruiter/jobs"
+           class="btn <%= view === 'mine' ? 'active' : '' %>">
+          My Jobs
+        </a>
+
+        <a href="/recruiter/jobs/all"
+           class="btn <%= view === 'all' ? 'active' : '' %>">
+          All Jobs
+        </a>
+
+        <a href="/index/recruiter" class="btn">Dashboard</a>
+      </div>
+    </div>
+
+
+    <!-- ================= SEARCH BAR (ONLY ALL JOBS) ================= -->
+    <% if (view === "all") { %>
+      <form class="filter-form" method="GET" action="/recruiter/jobs/all">
+
+        <input type="text"
+               name="keyword"
+               placeholder="Search job title or company"
+               value="<%= filters?.keyword || '' %>">
+
+        <input type="text"
+               name="location"
+               placeholder="Location"
+               value="<%= filters?.location || '' %>">
+
+        <button type="submit">Search</button>
+
+        <a href="/recruiter/jobs/all" class="reset-btn">Reset</a>
+      </form>
+    <% } %>
+    <% if (view === "mine") { %>
+  <div class="status-legend">
+    <span><span class="dot review"></span> Under Review</span>
+    <span><span class="dot accepted"></span> Accepted</span>
+    <span><span class="dot rejected"></span> Rejected</span>
+    <span><span class="dot total"></span> Total Applicants</span>
+  </div>
+<% } %>
+
+
+    <!-- ================= JOBS GRID ================= -->
+    <div class="jobs-grid">
+
+      <% if (jobs.length > 0) { %>
+        <% jobs.forEach(job => { %>
+
+          <div class="job-card">
+            <h3><%= job.title %></h3>
+            <p class="company"><%= job.companyName %></p>
+
+            <p><strong>Location:</strong> <%= job.location || "Not specified" %></p>
+            <p><strong>Experience:</strong> <%= job.experienceRequired || "Any" %></p>
+            <p><strong>Salary:</strong> <%= job.salaryRange || "Not disclosed" %></p>
+             <% if (view === "mine") { 
+     const stats = jobStats[job._id] || {
+       total: 0,
+       underReview: 0,
+       accepted: 0,
+       rejected: 0,
+       withdrawn: 0
+     };
+%>
+
+<div class="job-stats">
+  <span>👥 <strong><%= stats.total %></strong> Applicants</span>
+  <span class="status-review">🟡 <%= stats.underReview %></span>
+  <span class="status-accepted">🟢 <%= stats.accepted %></span>
+  <span class="status-rejected">🔴 <%= stats.rejected %></span>
+</div>
+
+<% } %>
+
+            <div class="skills">
+              <% job.requiredSkills.forEach(skill => { %>
+                <span class="skill"><%= skill %></span>
+              <% }) %>
+            </div>
+
+            <p class="desc">
+              <%= job.description
+                ? job.description.substring(0,100) + "..."
+                : "No description" %>
+            </p>
+
+            <% if (view === "mine") { %>
+              <div class="job-actions">
+                <a href="/job/<%= job._id %>/edit" class="btn-edit">Edit</a>
+
+                <form action="/job/<%= job._id %>?_method=DELETE"
+                      method="POST"
+                      onsubmit="return confirmDelete('<%= job.title %>')">
+                  <button class="btn-delete">🗑️ Delete</button>
+                </form>
+              </div>
+            <% } else { %>
+              <p class="readonly-note">🔒 Read only</p>
+            <% } %>
+          </div>
+
+        <% }) %>
+      <% } else { %>
+        <p>No jobs found.</p>
+      <% } %>
+
+    </div>
+  </div>
+
+  <script>
+    function confirmDelete(jobTitle) {
+      const input = prompt(
+        `Type the job title to confirm deletion:\n\n"${jobTitle}"`
+      );
+      return input === jobTitle;
+    }
+  </script>
+</body>

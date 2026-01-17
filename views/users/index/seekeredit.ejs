@@ -1,0 +1,43 @@
+<%- layout("layouts/boilerplate") %>
+
+<body>
+  <div class="edit-container">
+    <h2>Edit Profile</h2>
+
+    <!-- IMPORTANT: enctype added -->
+    <form action="/seeker/edit" method="POST" enctype="multipart/form-data">
+
+      <label>Name</label>
+      <input type="text" name="name" value="<%= seeker.name %>" required>
+
+      <label>Email</label>
+      <input type="email" name="email" value="<%= seeker.email %>" required>
+     
+      <label>Phone Number</label>
+      <input type="tel" name="phone" value="<%=seeker.phone%>" pattern="[6-9][0-9]{9}" required />
+
+      <label>Skills (comma separated)</label>
+      <input type="text" name="skills" value="<%= seeker.skills.join(', ') %>">
+
+      <label>Education</label>
+      <input type="text" name="education" value="<%= seeker.education %>">
+
+      <label>Experience</label>
+      <input type="text" name="experience" value="<%= seeker.experience || '' %>">
+
+      <!-- ✅ Resume Update -->
+      <label>Update Resume (PDF)</label>
+      <input type="file" name="resume" accept=".pdf">
+
+      <% if (seeker.resume) { %>
+        <p>
+          Current Resume:
+          <a href="<%= seeker.resume %>" target="_blank">View</a>
+        </p>
+      <% } %>
+
+      <button type="submit" class="btn-save">Save Changes</button>
+    </form>
+  </div>
+  
+</body>

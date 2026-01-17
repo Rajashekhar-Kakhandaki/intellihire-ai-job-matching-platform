@@ -1,0 +1,30 @@
+<%- layout("layouts/boilerplate") %>
+
+<div class="profile-container">
+  <h2>Company Profile</h2>
+
+  <div class="profile-card">
+    <p><strong>Company Name:</strong> <%= recruiter.companyName %></p>
+    <p><strong>Email:</strong> <%= recruiter.email %></p>
+
+    <% if (recruiter.companyWebsite) { %>
+      <p>
+        <strong>Website:</strong>
+        <a href="<%= recruiter.companyWebsite %>" target="_blank">
+          <%= recruiter.companyWebsite %>
+        </a>
+      </p>
+    <% } else { %>
+      <p><strong>Website:</strong> Not provided</p>
+    <% } %>
+
+    <div class="profile-actions">
+      <a href="/recruiter/edit" class="btn" style="color: white;">Edit Profile</a>
+
+      <form action="/account/delete" method="POST"
+            onsubmit="return confirm('This will delete your account and all jobs. Continue?')">
+        <button class="btn danger">Delete Account</button>
+      </form>
+    </div>
+  </div>
+</div>
