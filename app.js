@@ -44,7 +44,7 @@ app.use(flash());
 
 // -------------------- DATABASE --------------------
 mongoose
-  .connect("mongodb://127.0.0.1:27017/smartJobHireDb")
+  .connect("mongodb+srv://rajashekharkakhandaki8_db_user:pZowyG3IZtpJLi3P@cluster0.ekm46kn.mongodb.net/?appName=Cluster0")
   .then(() => console.log("connected successfully"))
   .catch(err => console.error(err));
 
